@@ -12,7 +12,7 @@ public class Person
     private final String emailAddress;
     private final String phoneNumber;
 
-    public Person(PersonBuilder personBulider) {
+    private Person(PersonBuilder personBulider) {
         this.firstName = personBulider.firstName;
         this.middleName = personBulider.middleName;
         this.lastName = personBulider.lastName;
@@ -47,6 +47,10 @@ public class Person
         public PersonBuilder(String firstName, String lastName) {
             this.firstName = firstName;
             this.lastName = lastName;
+
+            if (firstName == null || lastName == null) {
+                throw new IllegalArgumentException("First name and last name must not be null");
+            }
         }
 
         public PersonBuilder middleName(String middleName) {
