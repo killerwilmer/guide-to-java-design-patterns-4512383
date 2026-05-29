@@ -27,7 +27,7 @@ public class Pizza extends Meal {
 
     @Override
     public Pizza clone() {
-        return new Pizza(this.getPrice(), this.getFlavor());
+        return new Pizza(this.getPrice(), new PizzaFlavor(this.getFlavor().getName()));
     }
 
 }
